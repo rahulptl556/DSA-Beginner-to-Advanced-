@@ -1,0 +1,1 @@
+More for loop questions are solved in Basic Code folder.
