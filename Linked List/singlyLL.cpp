@@ -7,7 +7,7 @@ public:
     Node *next; // Pointer to Next LL
 
     // Constructor
-    Node(int data)    {
+    Node(int data){
         this->data = data;    // Setting Data of LL Node
         this->next = NULL;    // Setting Address of next LL Node
     }
