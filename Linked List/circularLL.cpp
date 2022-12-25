@@ -83,6 +83,15 @@ int main(){
     insertNode(tail, 3, 5);
     print(tail);
 
+    insertNode(tail, 3, 10);
+    print(tail);
+   
+    insertNode(tail, 5, 6);
+    print(tail);
+   
+    insertNode(tail, 10, 11);
+    print(tail);
+
 
 
     return 0;
