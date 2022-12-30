@@ -111,7 +111,6 @@ void deleteNode(Node* &tail, int value) {
 
 }
 
-
 int main(){
 
     Node* tail = NULL;

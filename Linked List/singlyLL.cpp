@@ -46,6 +46,7 @@ void print(Node *&head)
     cout << endl;
 }
 
+
 int main()
 {
     Node *node1 = new Node(10);
