@@ -51,7 +51,66 @@ void insertNode(Node* &tail, int element, int d){
     curr -> next = temp;
 
     }
+
 }
+void print(Node* tail) {
+
+    Node* temp = tail;
+
+    //empty list
+    if(tail == NULL) {
+        cout << "List is Empty "<< endl;
+        return ;
+    }
+
+    do {
+        cout << tail -> data << " ";
+        tail = tail -> next;
+    } while(tail != temp);
+
+    cout << endl;
+} 
+
+//Deletion
+
+void deleteNode(Node* &tail, int value) {
+
+    //empty list
+    if(tail == NULL) {
+        cout << " List is empty, please check again" << endl;
+        return;
+    }
+    else{
+        //non-empty
+
+        //assuming that "value" is present in the Linked List
+        Node* prev = tail;
+        Node* curr = prev -> next;
+
+        while(curr -> data != value) {
+            prev = curr;
+            curr = curr -> next;
+        }
+
+        prev -> next = curr -> next;
+
+        //1 Node Linked List
+        if(curr == prev) {
+            tail = NULL;
+        }
+
+        //>=2 Node linked list
+        else if(tail == curr ) {
+            tail = prev;
+        }
+
+        curr -> next = NULL;
+        delete curr;
+
+    }
+
+}
+
 
 bool isCircular(Node*head){
     //empty list
@@ -111,7 +170,7 @@ return NULL;
 
 //Detecting Starting Node in a Loop using Floyd's Algo
 
-Node* detectStartingNode(Node* head){
+Node* getStartingNode(Node* head){
 
     if(head == NULL){
         return NULL;
@@ -128,13 +187,38 @@ Node* detectStartingNode(Node* head){
     
 }
 
+void removeLoop(Node* head){
+    if(head == NULL){
+        return;
+    }
+
+    Node* startNode = getStartingNode(head);
+    Node* temp = startNode;
+
+    while(temp -> next != startNode){
+        temp = temp -> next;
+    }
+    temp -> next = NULL;
+}
+
+
+
 int main(){
     Node* tail = NULL;
     //insert at empty list
 
     insertNode(tail, 5, 3);
+    print(tail);
+
     insertNode(tail, 3, 5);
+    print(tail);
+
     insertNode(tail, 3, 10);
+    print(tail);
+   
+    insertNode(tail, 5, 6);
+    print(tail);
+   
      
     if(flyodDetectLoop){
         cout << "Loop is Present" << endl;
