@@ -1,18 +1,27 @@
 #include <iostream>
-#include <math.h>
-#include<limits.h>
 using namespace std;
 
 int main() {
-  int n,bit,ans;
-  int i = 0;
-  cin >> n;
+    int t;
+    cin >> t;
+    int n,y;
+    while(t--){
+        cin >> n >> y;
+        int r = 0;
 
-    while(n){
-        bit = 1 & n;
-        ans = (bit * pow(10,i) + ans);
-        n = n >> 1;
+        for(int i=0; i<n; i++){
+          int a;
+          cin >> a;
+          r |= a;
+        }
+        
+        int x= y- r;
+        if((x&y) == x){
+          cout << x << endl;
+        }
+        else{
+          cout << "-1" << endl;
+        }
     }
-
-  return ans;
+	return 0;
 }
